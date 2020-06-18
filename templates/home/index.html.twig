@@ -1,44 +1,101 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La salade brune{% endblock %}
+{% block title %}BLOG | LA SALADE BRUNE{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <header>
+        {% include 'menu/menu.html.twig' %}
+    </header>
 
-{% include 'menu/menu.html.twig' %}
+    <section id="banner-img" class="banner-img bg-banner-img">
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Date</th>
-            <th>Content</th>
-            <th>Image</th>
-            <th>Category</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.title }}</td>
-                <td>{{ article.author }}</td>
-                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
-                <td>{{ article.content }}</td>
-                <td>{{ article.image }}</td>
-                <td>{{ article.category }}</td>
+        <div class="row no-gutters">
+            <div class="col-12 col-md-5"></div>
+            <div class="col-12 col-md-7">
+                <div class="overlay"></div>
+                <div class="row no-gutters height1">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <p class="verticle-text text-white padding-vert">Bienvenue sur le nouveau blog de Lou</p>
+                    </div>
+                    <div class="col-10 d-flex  align-items-center">
+                        <h1 class="main-heading text-white">WELCOME<br>NEW<br>LOU'S<br>BLOG</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="about-text text-left d-flex">
+                        <p class="verticle-text text-grey pt-2">info a propos de moi</p>
+                        <h1 class="main-heading ml-3">Lorem ipsum dolor sit amet</h1>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="sub-heading text-grey">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus.
+                        <br><br>
+                        Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Vitae diam eleifend, in maximus metus </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+
+            <div id="js-grid-masonry-projects" class="cbp cbp-l-grid-masonry-projects">
+                {% for article in articles %}
+                <div class="cbp-item">
+                    <div class="cbp-caption">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="blog/img/portfolioS9.jpg" alt="">
+
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignCenter">
+                                <div class="cbp-l-caption-body">
+                                    <a class="vimeo" href="http://player.vimeo.com/video/396087935?title=0&amp;byline=0&amp;portrait=0"><i class="las la-play play-btn"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-text">
+                        <p class="portfolio-vert text-grey">by {{ article.author }}</p>
+                        <a class="text-black" href="blog/blogs.html"><h2 class="heading ml-3">{{ article.title }}</h2></a>
+                        <p class="date text-grey">{{ article.date ? article.date|date('d.m.Y') : '' }}</p>
+
+                        <div class="horizontal-line"></div>
+                        <p class="sub-heading text-grey mt-3">{{ article.content }}</p>
+                    </div>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="footer_ul">
+                        <li class="footer_list"><i class="lab la-facebook-f"></i></li>
+                        <li class="footer_list"><i class="lab la-twitter"></i></li>
+                        <li class="footer_list"><i class="lab la-google-plus"></i></li>
+                        <li class="footer_list"><i class="lab la-linkedin-in"></i></li>
+                        <li class="footer_list"><i class="lab la-instagram"></i></li>
+                        <li class="footer_list"><i class="las la-envelope"></i></li>
+                    </ul>
+                    <p class="info footer_text"><i class="far fa-copyright"></i>2020 SIERADZKI. Made with love by Thomas</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
