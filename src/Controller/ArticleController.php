@@ -20,9 +20,13 @@ class ArticleController extends AbstractController
      */
     public function index(ArticleRepository $articleRepository): Response
     {
-        return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
-        ]);
+        if ($this->getUser()) {
+            return $this->render('article/index.html.twig', [
+                'articles' => $articleRepository->findAll(),
+            ]);
+        } else {
+            return $this->redirectToRoute('home');
+        }
     }
 
     /**
@@ -30,22 +34,26 @@ class ArticleController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
-        $form->handleRequest($request);
+        if ($this->getUser()) {
+            $article = new Article();
+            $form = $this->createForm(ArticleType::class, $article);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($article);
-            $entityManager->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($article);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('article_index');
+                return $this->redirectToRoute('article_index');
+            }
+
+            return $this->render('article/new.html.twig', [
+                'article' => $article,
+                'form' => $form->createView(),
+            ]);
+        } else {
+            return $this->redirectToRoute('home');
         }
-
-        return $this->render('article/new.html.twig', [
-            'article' => $article,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**
