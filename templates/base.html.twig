@@ -4,36 +4,30 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <!-- Favicon -->
-            <link rel="icon" href="{{ asset('img/favicon.ico') }}">
-            <!-- Bundle -->
-            <link rel="stylesheet" href="{{ asset('css/bundle.min.css') }}">
-            <!-- Plugin Css -->
-            <link rel="stylesheet" href="{{ asset('css/cubeportfolio.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/line-awesome.min.css') }}">
-            <!-- Style Sheet -->
-            <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <!-- Font Google -->
+            <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Cormorant:400,500,600,700" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=KoHo:300,400,600" rel="stylesheet">
+
+            <!-- custom styles (optional) -->
+            <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-            <!-- JavaScript -->
-            <script src="{{ asset('js/bundle.min.js') }}"></script>
-            <!-- Plugin Js -->
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+            <script src="{{ asset('js/popper.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-            <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>
-            <!-- custom script -->
-            <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
-            <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-            <script src="{{ asset('js/mediaelement-and-player.min.js') }}"></script>
-            <script src="{{ asset('js/wow.min.js') }}"></script>
-            <script src="{{ asset('js/parallaxie.min.js') }}"></script>
-            <script src="{{ asset('js/script.js') }}"></script>
+            <script src="{{ asset('js/TweenMax.min.js') }}"></script>
+            <script src="{{ asset('js/sticky-sidebar.min.js') }}"></script>
+            <script src="{{ asset('js/youtubepopup.jquery.js') }}"></script>
+            <!-- custom JavaScript -->
+            <script src="{{ asset('js/custom.js') }}"></script>
         {% endblock %}
     </body>
 </html>

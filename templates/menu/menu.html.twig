@@ -1,50 +1,52 @@
+<!-- Nav Bar
+        ================================================== -->
+<div class="header-controller text-center">
+    <div class="container">
+        <nav id="nav" class="navbar navbar-expand-lg nav-overlay">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('img/logo-dark.png') }}" alt="logo" class="logo-1">
+            </a>
 
-
-<nav id="my-nav" class="navbar navbar-expand-lg navbar-light rounded-bar sidemenu-nav">
-
-    <div class="logo width-logo">
-        <a href="{{ path('home') }}"><img src="{{ asset('img/logo-white.png') }}" alt="Logo Img"></a>
-    </div>
-    <div class="menu-btn ml-auto">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-</nav>
-
-<div class="outer-wrapper">
-
-    <div class="overlay1">
-
-        <a class="close-outerwindow"><i class="las la-times"></i></a>
-
-        <nav class="navbar-1 w-100">
-
-            <div class="row small-nav text-center">
-
-                <div class="col-12">
-                    <div class="logo-img text-center">
-                        <a href="{{ path('home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo Img"></a>
-                    </div>
-                    <ul class="navbar-nav mt-5 text-center">
-                        <li class="nav-item"><a class="nav-link active" href="{{path('home')}}">Home</a></li>
+            <div class="collapse navbar-collapse ">
+                <ul class="navbar-nav ml-auto">
                         {% if app.user %}
-                            <li class="nav-item"><a class="nav-link"  href="{{ path('app_logout') }}"> Deconnexion </a></li>
-                            <li class="nav-item"><a class="nav-link"  href="{{ path('article_new') }}"> Nouvel article </a></li>
-                        {% else %}
-                            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}"> Connexion</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ path('app_register') }}"> Inscription </a></li>
-                        {% endif %}
-                    </ul>
-                    <ul class="footer_ul text-center mt-3">
-                        <li class="footer_list"><i class="lab la-facebook-f"></i></li>
-                        <li class="footer_list"><i class="lab la-twitter"></i></li>
-                        <li class="footer_list"><i class="lab la-google-plus"></i></li>
-                        <li class="footer_list"><i class="lab la-linkedin-in"></i></li>
-                    </ul>
-                </div>
+                    <li class="dropdown nav-item"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"  href="{{ path('app_logout') }}"> Deconnexion </a></li>
+                    <li class="dropdown nav-item"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"  href="{{ path('article_new') }}"> Nouvel article </a></li>
+                    {% else %}
+                    <li class="dropdown nav-item"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="{{ path('app_login') }}"> Connexion</a></li>
+                        <li class="dropdown nav-item"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="{{ path('app_register') }}"> Inscription </a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+
+            <div class="search_trigger">
+                <a class="nav-search search-trigger" href="#"><span class="jam jam-search"></span></a>
+
+                <button class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
+
+
     </div>
 </div>
+
+<div class="search-wrap">
+    <div class="search-inner">
+        <div class="search-cell">
+            <form method="get">
+                <div class="search-field-holder">
+                    <input type="search" class="form-control main-search-input" placeholder="search">
+                </div>
+            </form>
+        </div>
+        <span class="icon-close jam jam-close open" id="search-close"></span>
+    </div>
+
+</div>
+<!-- End Nav Bar
+================================================== -->
